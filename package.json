@@ -1,5 +1,5 @@
 {
-  "name": "hello",
+  "name": "interceptor",
   "esy": {
     "buildsInSource": "_build",
     "build": "dune build -p #{self.name}"

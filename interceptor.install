@@ -1,0 +1,8 @@
+lib: [
+  "_build/install/default/lib/interceptor/META"
+  "_build/install/default/lib/interceptor/dune-package"
+  "_build/install/default/lib/interceptor/opam"
+]
+bin: [
+  "_build/install/default/bin/tcp-interceptor"
+]
