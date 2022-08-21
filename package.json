@@ -1,0 +1,21 @@
+{
+  "name": "hello",
+  "esy": {
+    "buildsInSource": "_build",
+    "build": "dune build -p #{self.name}"
+  },
+  "scripts": {
+    "watch": "dune build -p #{self.name} -w",
+    "start": "esy b dune exec ./bin/#{self.name}.exe",
+    "utop": "esy dune utop lib -- -implicit-bindings"
+  },
+  "dependencies": {
+    "ocaml": "4.14.x",
+    "@opam/dune": "*"
+  },
+  "devDependencies": {
+    "@opam/ocaml-lsp-server": "*",
+    "@opam/ocamlformat": "*",
+    "@opam/utop": "*"
+  }
+}
