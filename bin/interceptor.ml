@@ -20,20 +20,27 @@ end
 
 let forward_socket = socket ~domain:PF_INET ~kind:SOCK_STREAM ~protocol:0 ()
 let forward_addr = ADDR_INET (Config.forward_host, Config.forward_port)
-let bufsize = 8192
-let buf = Bytes.create bufsize
+let buffer_size = 8192
+let buffer = Bytes.create buffer_size
 let zone = Lazy.force Time_unix.Zone.local
 
 let process incoming_traffic _ =
   let in_descr = descr_of_in_channel incoming_traffic in
-  let read_bytes_len, _ = recvfrom in_descr ~buf ~pos:0 ~len:bufsize ~mode:[] in
-  let now =
-    Time_unix.(
-      format (now ()) "%Y-%m-%d %H:%M:%S" ~zone)
+  let rec read_payload descr =
+    let read_bytes =
+      recv in_descr ~buf:buffer ~pos:0 ~len:buffer_size ~mode:[]
+    in
+    match read_bytes with
+    | 0 -> ()
+    | _ ->
+        let now = Time_unix.(format (now ()) "%Y-%m-%d %H:%M:%S" ~zone) in
+        let payload = Bytes.to_string buffer in
+        print_endline (now ^ " : " ^ payload);
+        send forward_socket ~buf:buffer ~pos:0 ~len:read_bytes ~mode:[]
+        |> ignore;
+        read_payload descr
   in
-  let payload = Bytes.to_string buf in
-  send forward_socket ~buf ~pos:0 ~len:read_bytes_len ~mode:[] |> ignore;
-  print_string (now ^ " : " ^ payload)
+  read_payload in_descr
 
 let () =
   connect forward_socket ~addr:forward_addr;
