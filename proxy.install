@@ -1,0 +1,11 @@
+lib: [
+  "_build/install/default/lib/proxy/META"
+  "_build/install/default/lib/proxy/dune-package"
+  "_build/install/default/lib/proxy/opam"
+]
+bin: [
+  "_build/install/default/bin/tcp-proxy"
+]
+doc: [
+  "_build/install/default/doc/proxy/README.md"
+]

@@ -1,24 +1,10 @@
 {
   "checksum": "0f0f40048b5ef6080a65743329521bee",
-  "root": "interceptor@link-dev:./package.json",
+  "root": "proxy@link-dev:./package.json",
   "node": {
-    "ocaml@4.14.0@d41d8cd9": {
-      "id": "ocaml@4.14.0@d41d8cd9",
-      "name": "ocaml",
-      "version": "4.14.0",
-      "source": {
-        "type": "install",
-        "source": [
-          "archive:https://registry.npmjs.org/ocaml/-/ocaml-4.14.0.tgz#sha1:619afaeabcc8732cc1f4014a7251403927f44021"
-        ]
-      },
-      "overrides": [],
-      "dependencies": [],
-      "devDependencies": []
-    },
-    "interceptor@link-dev:./package.json": {
-      "id": "interceptor@link-dev:./package.json",
-      "name": "interceptor",
+    "proxy@link-dev:./package.json": {
+      "id": "proxy@link-dev:./package.json",
+      "name": "proxy",
       "version": "link-dev:./package.json",
       "source": {
         "type": "link-dev",
@@ -35,6 +21,20 @@
         "@opam/ocamlformat@opam:0.24.1@80ba1b34",
         "@opam/ocaml-lsp-server@opam:1.13.1@c47cf6e0"
       ]
+    },
+    "ocaml@4.14.0@d41d8cd9": {
+      "id": "ocaml@4.14.0@d41d8cd9",
+      "name": "ocaml",
+      "version": "4.14.0",
+      "source": {
+        "type": "install",
+        "source": [
+          "archive:https://registry.npmjs.org/ocaml/-/ocaml-4.14.0.tgz#sha1:619afaeabcc8732cc1f4014a7251403927f44021"
+        ]
+      },
+      "overrides": [],
+      "dependencies": [],
+      "devDependencies": []
     },
     "@opam/zed@opam:3.2.0@20852002": {
       "id": "@opam/zed@opam:3.2.0@20852002",

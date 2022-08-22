@@ -1,4 +1,4 @@
 (executable
- (name interceptor)
- (public_name tcp-interceptor)
+ (name proxy)
+ (public_name tcp-proxy)
  (libraries core_unix core_unix.time_unix))

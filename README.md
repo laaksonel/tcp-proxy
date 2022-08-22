@@ -11,12 +11,12 @@ esy install
 
 Start new netcat server
 ```
-nc -l -p 8080
+nc -l -p 8081
 ```
 
-Start the proxy / interceptor
+Start the proxy
 ```
-esy x tcp-interceptor
+esy x tcp-proxy
 ```
 
 Send data with netcat client
